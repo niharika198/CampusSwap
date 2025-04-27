@@ -1,20 +1,21 @@
 const express = require('express');
-const connectDB = require('./config/db');
-const authRoutes = require('./routes/auth');
+const mongoose = require('mongoose');
 const cors = require('cors');
+const authRoutes = require('./routes/auth'); // Correct path to routes
 
 const app = express();
 const PORT = 3000;
 
-// Connect to MongoDB
-connectDB();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/auth', authRoutes);
+// Database connection
+mongoose.connect('mongodb://127.0.0.1:27017/CampusSwap')
+.then(() => console.log('MongoDB connected successfully'))
+.catch(err => console.log('MongoDB connection error:', err));
+
+// Use authentication routes
+app.use('/api/auth', authRoutes);  // Register auth routes
 
 // Start the server
 app.listen(PORT, () => {
