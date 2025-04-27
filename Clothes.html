@@ -2,279 +2,234 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Clothes Hub</title>
-
-  <!-- Bootstrap + FontAwesome -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothes Haven - Upload</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f5f5f5;
+      background-color: #E0D7C7;
       margin: 0;
       padding: 0;
     }
-
     .hero {
-      background: linear-gradient(135deg, #ffd6d6, #fefefe);
-      color: #333;
+      background-color: #927C67;
+      color: #ffffff;
       text-align: center;
-      padding: 50px 0;
+      padding: 100px 20px;
     }
-
-    .hero img {
-      max-width: 50%;
-      height: auto;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
     .upload-section {
       background-color: #ffffff;
       border-radius: 15px;
       padding: 40px;
       margin: 50px auto;
-      width: 80%;
-      max-width: 600px;
+      width: 90%;
+      max-width: 700px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
-
-    .upload-section h2 {
-      font-size: 2rem;
-      color: #4a4a4a;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .upload-section p {
-      font-size: 1rem;
-      color: #666;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
     .upload-box {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      border: 2px dashed #ccc;
+      justify-content: center;
+      border: 2px dashed #927C67;
       padding: 30px;
       border-radius: 12px;
-      background-color: #f0f0f0;
+      background-color: #E0D7C7;
       cursor: pointer;
       transition: background 0.3s;
       margin-bottom: 20px;
+      position: relative;
     }
-
     .upload-box:hover {
-      background-color: #e0e0e0;
+      background-color: #d8cbb8;
     }
-
     .upload-box input[type="file"] {
       display: none;
     }
-
-    .upload-box i {
-      font-size: 2.5rem;
-      color: #777;
+    .upload-box img {
+      max-width: 100%;
+      max-height: 200px;
+      margin-bottom: 10px;
     }
-
+    .upload-box i {
+      font-size: 3rem;
+      color: #927C67;
+      margin-bottom: 10px;
+    }
     .upload-box span {
       font-size: 1.2rem;
-      margin-left: 10px;
-      color: #777;
+      color: #927C67;
     }
-
-    .description-box textarea {
-      width: 100%;
-      padding: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      resize: vertical;
+    .form-group label {
+      color: #927C67;
+      font-weight: bold;
     }
-
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 10px;
+    .btn-submit {
+      background-color: #927C67;
+      color: #ffffff;
+      border: none;
+      padding: 10px 30px;
+      font-size: 1rem;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      transition: background-color 0.3s;
       margin-bottom: 15px;
     }
-
-    .clothes-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
+    .btn-submit:hover {
+      background-color: #7a6753;
     }
-
-    .clothes-gallery img {
-      width: 150px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .clothes-gallery img:hover {
-      transform: scale(1.05);
-    }
-
     footer {
-      background-color: #333;
+      background-color: #927C67;
       color: #ffffff;
-      padding: 30px 0;
+      padding: 20px 0;
       text-align: center;
       margin-top: 50px;
     }
-
-    footer a {
-      color: #f0f0f0;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #ffffff;
-    }
-
-    /* Changed submit button to light pink */
-    .btn-primary {
-      background-color: #ffb6c1;
-      border-color: #ffb6c1;
-    }
-
-    .btn-primary:hover {
-      background-color: #ffa6b1;
-      border-color: #ffa6b1;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .hero img {
-        max-width: 80%;
-      }
-    }
-    img{
-        height: 200px;
-        width: 200px;
-    }
   </style>
 </head>
-
 <body>
 
 <!-- Hero Section -->
 <section class="hero">
-  <div class="container">
-    <img src="Assets/clothesmain.jpg" alt="Clothes Collection">
-    <h1>Welcome to Clothes Hub</h1>
-    <p>Share your stylish clothes and explore others!</p>
-  </div>
+  <h1>Share Your Clothes</h1>
+  <p>Upload an image and add details!</p>
 </section>
 
 <!-- Upload Section -->
 <section class="upload-section">
-  <h2>Upload Your Clothes</h2>
-  <p>Add your clothing photo and description to share with the community.</p>
-
   <form id="clothesForm">
+
+    <!-- Upload Image -->
     <label class="upload-box">
-      <i class="fas fa-tshirt"></i>
-      <span>Click to upload a picture</span>
-      <input type="file" id="fileUpload" name="fileUpload">
+      <i class="fas fa-camera"></i>
+      <span id="uploadText">Click here to upload a clothes picture</span>
+      <input type="file" id="fileUpload" name="fileUpload" accept="image/*">
+      <img id="previewImage" style="display:none;">
     </label>
 
-    <div class="description-box mb-3">
-      <textarea rows="5" class="form-control" placeholder="Add description (size, material, style)..." name="description"></textarea>
+    <!-- Clothes Name -->
+    <div class="form-group mb-3">
+      <label for="title">Clothes Title</label>
+      <input type="text" id="title" name="title" class="form-control" placeholder="Enter clothes title" required>
     </div>
 
+    <!-- Size -->
     <div class="form-group mb-3">
-      <input type="text" name="owner" placeholder="Your Name">
+      <label for="size">Size</label>
+      <input type="text" id="size" name="size" class="form-control" placeholder="Enter size (e.g., M, L, XL)">
     </div>
 
+    <!-- Brand -->
     <div class="form-group mb-3">
-      <select name="purpose" id="purposeSelect">
-        <option value="" disabled selected>Choose: Exchange or Rent</option>
+      <label for="brand">Brand</label>
+      <input type="text" id="brand" name="brand" class="form-control" placeholder="Enter brand">
+    </div>
+
+    <!-- Description -->
+    <div class="form-group mb-3">
+      <label for="description">Add Description Here</label>
+      <textarea id="description" name="description" class="form-control" rows="4" placeholder="Write a short description about the item..."></textarea>
+    </div>
+
+    <!-- Giver Name -->
+    <div class="form-group mb-3">
+      <label for="giver">Giver's Name</label>
+      <input type="text" id="giver" name="giver" class="form-control" placeholder="Enter your name" required>
+    </div>
+
+    <!-- Rent or Exchange -->
+    <div class="form-group mb-3">
+      <label for="purpose">Purpose</label>
+      <select id="purpose" name="purpose" class="form-control">
         <option value="Exchange">Exchange</option>
         <option value="Rent">Rent</option>
       </select>
     </div>
 
+    <!-- Rent Days (only if Rent) -->
     <div class="form-group mb-3" id="rentDaysGroup" style="display: none;">
-      <input type="number" name="rentDays" placeholder="If Rent, for how many days?">
+      <label for="rentDays">If Rent, how many days?</label>
+      <input type="number" id="rentDays" name="rentDays" class="form-control" placeholder="Enter number of days">
     </div>
 
-    <div class="form-group mb-3" id="rentCostGroup" style="display: none;">
-      <input type="number" name="rentCost" placeholder="Cost for Rent (in ₹ or $)">
+    <!-- Contact Info -->
+    <div class="form-group mb-3">
+      <label for="contact">Contact Information</label>
+      <input type="text" id="contact" name="contact" class="form-control" placeholder="Phone or Email" required>
     </div>
 
-    <div class="form-group mb-4">
-      <input type="text" name="contact" placeholder="Contact Information (Phone or Email)">
-    </div>
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-submit w-100">Submit</button>
 
-    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#submitModal">
-      Submit
-    </button>
   </form>
 </section>
 
-<!-- Clothes Gallery -->
-<section class="clothes-gallery">
-  <img src="Assets/clothes1.jpg" alt="Clothing 1">
-  <img src="Assets/clothes2.jpg" alt="Clothing 2">
-  <img src="Assets/clothes3.jpg" alt="Clothing 3">
-</section>
-
-<!-- Modal -->
-<div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="submitModalLabel">Submission Successful!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Thank you for sharing your clothing item!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Footer -->
 <footer>
-  <p>&copy; 2025 Clothes Hub | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  <p>&copy; 2025 Clothes Haven | All rights reserved</p>
 </footer>
 
-<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.getElementById('purposeSelect').addEventListener('change', function() {
-    const rentDaysGroup = document.getElementById('rentDaysGroup');
-    const rentCostGroup = document.getElementById('rentCostGroup');
-    if (this.value === 'Rent') {
-      rentDaysGroup.style.display = 'block';
-      rentCostGroup.style.display = 'block';
-    } else {
-      rentDaysGroup.style.display = 'none';
-      rentCostGroup.style.display = 'none';
+  const purposeField = document.getElementById('purpose');
+  const rentDaysGroup = document.getElementById('rentDaysGroup');
+  const fileUpload = document.getElementById('fileUpload');
+  const previewImage = document.getElementById('previewImage');
+  const uploadText = document.getElementById('uploadText');
+  let imageBase64 = '';
+
+  // Show rent days input if "Rent" is selected
+  purposeField.addEventListener('change', function() {
+    rentDaysGroup.style.display = this.value === 'Rent' ? 'block' : 'none';
+  });
+
+  // Show image preview when file is selected
+  fileUpload.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        previewImage.src = e.target.result;
+        previewImage.style.display = 'block';
+        uploadText.style.display = 'none';
+        imageBase64 = e.target.result;
+      }
+      reader.readAsDataURL(file);
     }
+  });
+
+  // Handle form submission and save to localStorage
+  document.getElementById('clothesForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const title = document.getElementById('title').value;
+    const size = document.getElementById('size').value;
+    const brand = document.getElementById('brand').value;
+    const description = document.getElementById('description').value;
+    const giver = document.getElementById('giver').value;
+    const purpose = document.getElementById('purpose').value;
+    const rentDays = document.getElementById('rentDays').value;
+    const contact = document.getElementById('contact').value;
+
+    const newClothing = {
+      type: 'clothing',
+      image: imageBase64,  // The image is encoded in base64
+      title,
+      size,
+      brand,
+      description,
+      giver,
+      purpose,
+      rentDays,
+      contact
+    };
+
+    const clothes = JSON.parse(localStorage.getItem('clothes')) || [];
+    clothes.push(newClothing);
+    localStorage.setItem('clothes', JSON.stringify(clothes));
+
+    window.location.href = 'browse.html';  // Redirect to browse page after submission
   });
 </script>
 
