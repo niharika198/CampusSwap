@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessories Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f6f2ed;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 0;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .upload-section {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 40px;
+      margin: 50px auto;
+      width: 85%;
+      max-width: 700px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .upload-section h2 {
+      font-size: 2rem;
+      color: #3c2f2f;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .upload-section p {
+      font-size: 1rem;
+      color: #7a5c48;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .upload-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2px dashed #d8c1aa;
+      padding: 30px;
+      border-radius: 12px;
+      background-color: #f6f2ed;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .upload-box:hover {
+      background-color: #e2d5c3;
+    }
+
+    .upload-box input[type="file"] {
+      display: none;
+    }
+
+    .upload-box i {
+      font-size: 2.5rem;
+      color: #3c2f2f;
+      margin-bottom: 10px;
+    }
+
+    .upload-box span {
+      font-size: 1.2rem;
+      color: #3c2f2f;
+    }
+
+    .gallery {
+      margin: 50px auto;
+      width: 90%;
+      text-align: center;
+    }
+
+    .gallery h3 {
+      color: #3c2f2f;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .gallery img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      background-color: #3c2f2f;
+      color: #ffffff;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    footer a {
+      color: #f6f2ed;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>Discover Trendy Accessories</h1>
+  </div>
+</section>
+
+<!-- Upload Section -->
+<section class="upload-section" id="upload">
+  <h2>Add Your Accessory</h2>
+  <p>Upload a picture and share a short description of your accessory!</p>
+
+  <label class="upload-box">
+    <i class="fas fa-camera"></i>
+    <span>Click to upload a picture</span>
+    <input type="file" id="fileUpload" name="fileUpload">
+  </label>
+
+  <div class="mt-4">
+    <textarea class="form-control" placeholder="Add description here..." rows="4"></textarea>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery">
+  <h3>Explore Accessories</h3>
+  <img src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?auto=format&fit=crop&w=400&q=80" alt="Accessory 1">
+  <img src="https://images.unsplash.com/photo-1578237494161-cb4f9490828e?auto=format&fit=crop&w=400&q=80" alt="Accessory 2">
+  <img src="https://images.unsplash.com/photo-1600185366003-50b5b84799e2?auto=format&fit=crop&w=400&q=80" alt="Accessory 3">
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Accessories Hub | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
