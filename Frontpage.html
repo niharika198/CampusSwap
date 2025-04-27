@@ -63,6 +63,8 @@
             overflow: hidden;
             background-color: white;
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .category-card:hover {
             transform: translateY(-10px);
@@ -76,6 +78,7 @@
         .category-card-body {
             padding: 20px;
             text-align: center;
+            flex-grow: 1; /* Allowing the body to take up remaining space */
         }
         .category-card-body h5 {
             font-weight: bold;
@@ -85,6 +88,25 @@
         .category-card-body p {
             color: #777;
             font-size: 1rem;
+        }
+
+        /* Explore Clothes Button Styling */
+        .btn-explore {
+            display: block;
+            width: 100%; /* Make it span the full width of the category card */
+            padding: 12px 0;
+            background-color: #000;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 0; /* Remove border radius for a square button */
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-explore:hover {
+            background-color: #444;
+            transform: translateY(-5px);
         }
 
         /* Footer Section */
@@ -158,12 +180,13 @@
     <div class="row">
         <div class="col-md-3">
             <div class="category-card">
-                <img src="C:\Users\nandi\OneDrive\Documents\COLLAGE\TEAM ADHYAVI\acessoriesss.jpg", alt="Clothes">
-                <div class="category-card-body">b
+                <img src="C:\Users\nandi\OneDrive\Documents\COLLAGE\TEAM ADHYAVI\acessoriesss.jpg" alt="Clothes">
+                <div class="category-card-body">
                     <h5>Clothes</h5>
                     <p>Stylish outfits for rent or exchange, no need to buy!</p>
                 </div>
-
+                <!-- Explore Clothes button -->
+                <a href="clothes.html" class="btn-explore">Explore Clothes</a>
             </div>
         </div>
         <div class="col-md-3">
@@ -177,7 +200,7 @@
         </div>
         <div class="col-md-3">
             <div class="category-card">
-                <img src=""C:\Users\nandi\OneDrive\Documents\COLLAGE\TEAM ADHYAVI\gadgets.jpg alt="Gadgets">
+                <img src="C:\Users\nandi\OneDrive\Documents\COLLAGE\TEAM ADHYAVI\gadgets.jpg" alt="Gadgets">
                 <div class="category-card-body">
                     <h5>Gadgets</h5>
                     <p>Rent or exchange gadgets like laptops, phones, and more.</p>
