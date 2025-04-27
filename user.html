@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Haven - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f1ee;
+      margin: 0;
+      padding: 0;
+    }
+    .profile-section {
+      background-color: #6d4c41;
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .profile-section .fa-user-circle {
+      font-size: 5rem;
+      margin-bottom: 15px;
+    }
+    .profile-section h2 {
+      margin-bottom: 5px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .requests-section {
+      padding: 50px 20px;
+    }
+    .request-card {
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .request-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .badge-exchange {
+      background-color: #8d6e63;
+    }
+    .badge-rent {
+      background-color: #a1887f;
+    }
+    .reply-box {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .reply-box textarea {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: border-color 0.3s;
+    }
+    .reply-box textarea:focus {
+      border-color: #6d4c41;
+      outline: none;
+    }
+    .reply-icon {
+      font-size: 1.5rem;
+      margin-left: 10px;
+      cursor: pointer;
+      color: #6d4c41;
+      transition: color 0.3s;
+    }
+    .reply-icon:hover {
+      color: #4e342e;
+    }
+    footer {
+      background-color: #4a3f35;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Profile Section -->
+<section class="profile-section">
+  <i class="fas fa-user-circle"></i>
+  <h2>Rahul Sharma</h2>
+  <p>Email: rahul.sharma@india.com</p>
+  <p>Phone: +91 9876543210</p>
+</section>
+
+<!-- Requests Section -->
+<section class="requests-section container">
+  <h3 class="text-center">Incoming Requests</h3>
+
+  <!-- Book Requests -->
+  <div id="book-requests"></div>
+
+  <!-- Earrings Requests -->
+  <div id="earring-requests"></div>
+
+</section>
+
+<footer>
+  <p>&copy; 2025 Book Haven - All Rights Reserved</p>
+</footer>
+
+<script>
+  // Items uploaded by the user (giver)
+  const uploadedItems = ['The White Tiger', 'Earrings'];
+
+  // Example requests data
+  const allRequests = [
+    { requester: 'Aarti Verma', message: 'Interested in exchanging "The White Tiger" with "The Alchemist".', item: 'The White Tiger', contact: 'aarti.verma@example.com', type: 'Exchange', paymentModes: ['Cash', 'Online'] },
+    { requester: 'Suresh Kumar', message: 'Wants to rent "The White Tiger" for 5 days.', item: 'The White Tiger', contact: 'suresh.kumar@example.com', type: 'Rent', paymentModes: ['Cash'] },
+    { requester: 'Nisha Kapoor', message: 'Wants to rent a pair of earrings for 4 days.', item: 'Earrings', contact: 'nisha.kapoor@example.com', type: 'Rent', paymentModes: ['Online'] },
+    { requester: 'Priya Patel', message: 'Interested in exchanging a pair of earrings for a watch.', item: 'Earrings', contact: 'priya.patel@example.com', type: 'Exchange', paymentModes: ['Cash', 'Online'] }
+  ];
+
+  // Filter and display relevant requests
+  function filterRequests() {
+    const bookRequests = allRequests.filter(r => uploadedItems.includes(r.item) && r.item === 'The White Tiger');
+    const earringRequests = allRequests.filter(r => uploadedItems.includes(r.item) && r.item === 'Earrings');
+    displayRequests(bookRequests, 'book-requests');
+    displayRequests(earringRequests, 'earring-requests');
+  }
+
+  // Render requests into the container
+  function displayRequests(requests, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    if(requests.length === 0) {
+      container.innerHTML = '<p>No requests for this item.</p>';
+      return;
+    }
+    requests.forEach(r => {
+      const card = document.createElement('div');
+      card.className = 'request-card';
+      card.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0">${r.requester}</h5>
+          <span class="badge badge-${r.type.toLowerCase()}">${r.type}</span>
+        </div>
+        <p><strong>Message:</strong> ${r.message}</p>
+        <p><strong>Contact:</strong> ${r.contact}</p>
+        <p><strong>Payment Modes:</strong> ${r.paymentModes.join(', ')}</p>
+        <div class="reply-box">
+          <label for="reply-${r.requester}">Your Response:</label>
+          <textarea id="reply-${r.requester}" class="form-control" rows="3" placeholder="Write your reply..."></textarea>
+          <i class="fas fa-paper-plane reply-icon" onclick="sendReply('reply-${r.requester}')"></i>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // Send reply handler
+  function sendReply(id) {
+    const text = document.getElementById(id).value.trim();
+    if(!text) return alert('Please write a reply before sending.');
+    alert('Reply sent: ' + text);
+  }
+
+  // Initial call
+  filterRequests();
+</script>
+
+</body>
+</html>
