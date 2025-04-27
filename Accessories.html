@@ -137,15 +137,34 @@
   <h2>Add Your Accessory</h2>
   <p>Upload a picture and share a short description of your accessory!</p>
 
-  <label class="upload-box">
-    <i class="fas fa-camera"></i>
-    <span>Click to upload a picture</span>
-    <input type="file" id="fileUpload" name="fileUpload">
-  </label>
+  <form id="accessoryForm">
+    <label class="upload-box">
+      <i class="fas fa-camera"></i>
+      <span>Click to upload a picture</span>
+      <input type="file" id="fileUpload" name="fileUpload">
+    </label>
 
-  <div class="mt-4">
-    <textarea class="form-control" placeholder="Add description here..." rows="4"></textarea>
-  </div>
+    <div class="mt-4">
+      <textarea class="form-control mb-3" name="description" placeholder="Add description here..." rows="4"></textarea>
+    </div>
+
+    <input type="text" class="form-control mb-3" name="giver" placeholder="Your Name">
+
+    <select class="form-control mb-3" name="purpose" id="purposeSelect">
+      <option value="" disabled selected>Choose: Exchange or Rent</option>
+      <option value="Exchange">Exchange</option>
+      <option value="Rent">Rent</option>
+    </select>
+
+    <div id="rentFields" style="display: none;">
+      <input type="number" class="form-control mb-3" name="rentDays" placeholder="Number of days">
+      <input type="number" class="form-control mb-3" name="rentCost" placeholder="Cost in ₹">
+    </div>
+
+    <input type="text" class="form-control mb-3" name="contact" placeholder="Contact Info (Phone or Email)">
+
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
+  </form>
 </section>
 
 <!-- Gallery Section -->
@@ -162,5 +181,16 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('purposeSelect').addEventListener('change', function() {
+    const rentFields = document.getElementById('rentFields');
+    if (this.value === 'Rent') {
+      rentFields.style.display = 'block';
+    } else {
+      rentFields.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>

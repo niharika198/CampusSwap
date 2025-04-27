@@ -1,148 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Haven</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f6f2ed; /* Light Beige */
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fashion Haven</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f6f2ed;
+      margin: 0;
+      padding: 0;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, #3c2f2f, #c7a17a); /* Deep Brown to Soft Brown */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-            border-bottom: 5px solid #ffffff; /* White border */
-        }
+    .hero {
+      background: linear-gradient(135deg, #3c2f2f, #c7a17a);
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 0;
+      border-bottom: 5px solid #ffffff;
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-        }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
 
-        .hero p {
-            font-size: 1.25rem;
-            margin-top: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        }
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
 
-        .btn-primary {
-            background-color: #3c2f2f; /* Deep Brown */
-            color: white;
-            border: none;
-            padding: 10px 30px;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-        }
+    .btn-primary {
+      background-color: #3c2f2f;
+      color: white;
+      border: none;
+      padding: 10px 30px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
 
-        .btn-primary:hover {
-            background-color: #d8c1aa; /* Dusty Brown */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
+    .btn-primary:hover {
+      background-color: #d8c1aa;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Upload Picture Section */
-        .upload-box {
-            background-color: #ffffff; /* White background */
-            border: 2px dashed #3c2f2f; /* Deep Brown dashed border */
-            border-radius: 10px;
-            padding: 40px;
-            text-align: center;
-            margin: 50px auto;
-            width: 50%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .upload-box, .form-box, .info-box {
+      background-color: #ffffff;
+      border: 2px dashed #3c2f2f;
+      border-radius: 10px;
+      padding: 40px;
+      margin: 30px auto;
+      width: 50%;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .upload-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
+    .upload-box:hover, .form-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .upload-box .fa-camera {
-            font-size: 4rem;
-            color: #3c2f2f; /* Deep Brown icon color */
-        }
+    .upload-box .fa-camera {
+      font-size: 4rem;
+      color: #3c2f2f;
+    }
 
-        .upload-box h5 {
-            font-size: 1.75rem;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #3c2f2f;
-        }
+    .upload-box h5, .form-box h5, .info-box h5 {
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: #3c2f2f;
+      margin-bottom: 20px;
+    }
 
-        .upload-box p {
-            color: #777;
-            font-size: 1rem;
-        }
+    .info-box {
+      text-align: left;
+      border: 2px solid #c7a17a;
+    }
 
-        footer {
-            background-color: #3c2f2f; /* Deep Brown footer */
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
+    footer {
+      background-color: #3c2f2f;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+    }
 
-        footer a {
-            color: #d8c1aa; /* Dusty Brown footer links */
-            font-weight: bold;
-            text-decoration: none;
-        }
+    footer a {
+      color: #d8c1aa;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-        footer a:hover {
-            color: #c7a17a; /* Soft Brown hover effect */
-        }
+    footer a:hover {
+      color: #c7a17a;
+    }
 
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .upload-box {
-                width: 80%;
-                padding: 30px;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .upload-box, .form-box, .info-box {
+        width: 80%;
+        padding: 30px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <!-- Hero Section -->
 <section class="hero">
-    <div class="container">
-        <h1>Discover Your Perfect Style</h1>
-        <p>Explore our latest collection of trendy outfits and accessories</p>
-        <a href="#shop" class="btn btn-primary">Shop Now</a>
-    </div>
+  <div class="container">
+    <h1>Discover Your Perfect Style</h1>
+    <p>Explore our latest collection of trendy outfits and accessories</p>
+    <a href="#shop" class="btn btn-primary">Shop Now</a>
+  </div>
 </section>
 
 <!-- Upload Picture Section -->
 <section class="upload-box">
-    <i class="fas fa-camera"></i>
-    <h5>Upload a Picture</h5>
-    <p>Click the button below to upload a photo of your outfit or accessory.</p>
-    <input type="file" class="btn btn-primary" accept="image/*">
+  <i class="fas fa-camera"></i>
+  <h5>Upload a Picture</h5>
+  <p>Click the button below to upload a photo of your outfit or accessory.</p>
+  <input type="file" class="btn btn-primary" accept="image/*">
 </section>
 
-<!-- Footer Section -->
+<!-- Form to Enter Item Information -->
+<section class="form-box">
+  <h5>Enter Item Details</h5>
+  <form id="itemForm">
+    <div class="mb-3">
+      <input type="text" id="owner" class="form-control" placeholder="Owner Name" required>
+    </div>
+    <div class="mb-3">
+      <select id="availability" class="form-select" required>
+        <option value="">Select Availability</option>
+        <option value="Exchange">Exchange</option>
+        <option value="Rent">Rent</option>
+      </select>
+    </div>
+    <div id="rentDetails" style="display: none;">
+      <div class="mb-3">
+        <input type="number" id="days" class="form-control" placeholder="Rental Duration (in days)">
+      </div>
+      <div class="mb-3">
+        <input type="number" id="cost" class="form-control" placeholder="Rental Cost (₹)">
+      </div>
+    </div>
+    <div class="mb-3">
+      <input type="text" id="contact" class="form-control" placeholder="Contact Information" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Details</button>
+  </form>
+</section>
+
+<!-- Display Item Information -->
+<section id="infoSection" class="info-box" style="display: none;">
+  <h5>Item Details</h5>
+  <p><strong>Owner:</strong> <span id="displayOwner"></span></p>
+  <p><strong>Available for:</strong> <span id="displayAvailability"></span></p>
+  <div id="displayRentFields" style="display: none;">
+    <p><strong>Rental Duration:</strong> <span id="displayDays"></span> days</p>
+    <p><strong>Rental Cost:</strong> ₹<span id="displayCost"></span></p>
+  </div>
+  <p><strong>Contact Info:</strong> <span id="displayContact"></span></p>
+</section>
+
+<!-- Footer -->
 <footer>
-    <p>&copy; 2025 Fashion Haven | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  <p>&copy; 2025 Fashion Haven | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Show rental fields if "Rent" selected
+  document.getElementById('availability').addEventListener('change', function() {
+    var rentDetails = document.getElementById('rentDetails');
+    if (this.value === 'Rent') {
+      rentDetails.style.display = 'block';
+    } else {
+      rentDetails.style.display = 'none';
+    }
+  });
+
+  // Handle form submission
+  document.getElementById('itemForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('infoSection').style.display = 'block';
+
+    document.getElementById('displayOwner').innerText = document.getElementById('owner').value;
+    document.getElementById('displayAvailability').innerText = document.getElementById('availability').value;
+    document.getElementById('displayContact').innerText = document.getElementById('contact').value;
+
+    if (document.getElementById('availability').value === 'Rent') {
+      document.getElementById('displayRentFields').style.display = 'block';
+      document.getElementById('displayDays').innerText = document.getElementById('days').value;
+      document.getElementById('displayCost').innerText = document.getElementById('cost').value;
+    } else {
+      document.getElementById('displayRentFields').style.display = 'none';
+    }
+
+    // Scroll to the info section smoothly
+    document.getElementById('infoSection').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
 </body>
 </html>
-
